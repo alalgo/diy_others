@@ -1,0 +1,40 @@
+NFA 容易构造，但是因为其不确定性很难用程序实现状态转移逻辑；NFA 不容易构造，但是因为其确定性很容易用程序来实现状态转移逻辑
+但是每一个 NFA 都有对应的 DFA
+
+1968 年 Ken Thompson 发表了一篇论文 Regular Expression Search Algorithm，在这篇文章里，他描述了一种正则表达式编译器，并催生出了后来的 qed、ed、grep 和 egrep。
+
+后缀表达式: 逆波兰表示法（Reverse Polish notation，RPN，或逆波兰记法）,是一种是由波兰数学家扬·武卡谢维奇1920年引入的数学表达式方式，在逆波兰记法中，所有操作符置于操作数的后面，因此也被称为后缀表示法。逆波兰记法不需要括号来标识操作符的优先级。
+艾兹格·迪科斯彻引入了调度场算法，因其操作类似于火车编组场而得名。用于将中缀表达式转换为后缀形式。 
+，因其操作类似于火车编组场而得名。 
+
+参考资料：
+Regular Expression Matching Can Be Simple And Fast （https://swtch.com/~rsc/regexp/regexp1.html）
+Regular expression search algorithm(Ken Thompson) （paper）
+Mastering Regular Expressions(Jeffrey E. F. Friedl) (book)
+
+
+一、正则表达式转化为等价NFA
+	正则表达式预处理（添加连接符、使用调度场算法将中缀表达式转后缀表达式）
+	使用 Thompson's construction algorithm 将正则表达式转为ε-NFA（其它算法：Glushkov's construction algorithm ）
+	
+二、NFA 转化为等价 DNF
+	Subset Construction Algorithm
+	
+三、DFA最小化。
+ 	Hopcroft’s Algorithm（其它算法：Brzozowski’s Algorithm）
+ 	
+四、输入文本到等价NFA，得到匹配结果
+	搜索算法（Recursive Backtracking、 1968 Ken Thompson Regular Expression Search Algorithm）
+	
+	
+java Regular Expressions怎么实现？
+	
+	
+	
+	
+在语言学中，Context-free grammar 常被称为短语结构文法（phrase structure grammar ）；在计算机领域，Context-free grammar 被称为 Backus normal form （BNF），巴科斯范式是一种用于表示上下文无关文法的语言。
+约翰·巴科斯首次在ALGOL 58中实现巴科斯范式。彼得·诺尔在ALGOL 60之中，进一步发展它的概念并将它的符号加以简化，称其为巴科斯范式（Backus Normal Form）。但高德纳主张应称为巴科斯-诺尔范式（Backus–Naur Form），因为它不算是一种正规形式（Normal form）。
+RFC2234 定义了扩展的巴科斯范式(ABNF)。近年来在Internet的定义中ABNF被广泛使用。ABNF做了更多的改进，比如说，在ABNF中，尖括号不再需要。
+配置文件：使用BNF范式描述的某种语法结构	
+
+（Abstract Syntax Tree，AST）简称语法树（Syntax tree）: 可实现代码语法的检查，代码风格的检查，代码的格式化，代码的高亮，代码错误提示，代码自动补全等等
